@@ -3,19 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	var n int
-	var a [100]int
+	n, a := 0, [100]int{}
 
 	fmt.Scan(&n)
 	for i := 0; i < n; i++ {
 		fmt.Scan(&a[i])
 	}
 
-	trace(a, n)
-	insertionSort(a, n)
+	trace(&a, n)
+	insertionSort(&a, n)
 }
 
-func trace(a [100]int, n int) {
+func trace(a *[100]int, n int) {
 	for i := 0; i < n; i++ {
 		if i > 0 {
 			fmt.Printf(" ")
@@ -25,7 +24,7 @@ func trace(a [100]int, n int) {
 	fmt.Printf("\n")
 }
 
-func insertionSort(a [100]int, n int) {
+func insertionSort(a *[100]int, n int) {
 	for i := 1; i < n; i++ {
 		v := a[i]
 		j := i - 1
