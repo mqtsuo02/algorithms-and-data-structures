@@ -25,7 +25,7 @@ func (pq *ProcessQueue) Enqueue(p Process) {
 
 // Dequeue : take out process from head of queue
 func (pq *ProcessQueue) Dequeue() (p Process, e error) {
-	if len(*pq) == 0 {
+	if pq.IsEmpty() {
 		e = errors.New("there is no process in queue")
 		return
 	}
